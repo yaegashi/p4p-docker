@@ -2,8 +2,7 @@
 version: '3'
 services:
   p4p:
-    image: p4p-docker
-    build: docker
+    image: registry.gitlab.com/yaegashi/p4p-docker/p4p
     environment:
       P4TARGET: perforce:1666
     volumes:
