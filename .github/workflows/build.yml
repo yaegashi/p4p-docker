@@ -1,4 +1,7 @@
-on: push
+on:
+  push:
+    tags:
+      - 'v*'
 env:
   IMAGE: "ghcr.io/${{github.repository}}/p4p"
 jobs:
@@ -6,6 +9,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@master
-      - run: docker login ghcr.io -u ${{github.repository_owner}} -p ${{github.token}}
-      - run: docker build -t ${IMAGE} docker
-      - run: docker push ${IMAGE}
+      - run: docker login ghcr.io -u ${{github.actor}} -p ${{secrets.PAT}}
+      - run: echo "TAG=${GITHUB_REF#refs/*/}" >>$GITHUB_ENV
+      - run: docker build -t ${IMAGE}:${TAG} docker
+      - run: docker push ${IMAGE}:${TAG}
