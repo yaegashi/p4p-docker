@@ -4,8 +4,14 @@ services:
   p4p:
     image: ghcr.io/yaegashi/p4p-docker/p4p
     build: docker
+    # P4P command line options
+    # https://www.perforce.com/manuals/p4sag/Content/P4SAG/chapter.proxy.html
+    command: -v proxy.monitor.level=0
+    # P4P Environment variables
+    # https://www.perforce.com/manuals/cmdref/Content/CmdRef/envars.html
     environment:
       P4TARGET: perforce:1666
+      P4DEBUG: server=1
     volumes:
       - ./data:/data
     ports:

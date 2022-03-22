@@ -12,4 +12,4 @@ ENV P4TRUST=/data/trust
 VOLUME /data
 EXPOSE 1666
 COPY entrypoint.sh /
-CMD ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]

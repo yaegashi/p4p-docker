@@ -7,6 +7,8 @@ if test -z "$P4TARGET"; then
         exit 1
 fi
 
+set -x
+
 mkdir -p $P4SSLDIR $P4PCACHE
 
 if ! test -r $P4SSLDIR/privatekey.txt -a -r $P4SSLDIR/certificate.txt; then
@@ -20,4 +22,4 @@ fi
 
 p4p -Gf
 
-exec p4p
+exec p4p "$@"
