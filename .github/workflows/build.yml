@@ -2,17 +2,19 @@ on:
   push:
     branches:
       - master
+      - release-*
     tags:
       - '*'
   pull_request:
     branches:
       - master
+      - release-*
 permissions:
   packages: write
 env:
   REGISTRY: ghcr.io
   IMAGE: "${{github.repository}}/p4p"
-  P4REL: r21.2
+  P4REL: r20.1
 jobs:
   build:
     runs-on: ubuntu-20.04
