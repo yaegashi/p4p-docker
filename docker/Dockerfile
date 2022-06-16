@@ -7,6 +7,7 @@ RUN curl -sL http://www.perforce.com/downloads/perforce/$P4REL/bin.linux26x86_64
 RUN chmod +x /usr/local/bin/p4 /usr/local/bin/p4p
 ENV P4TARGET=
 ENV P4PORT=ssl:1666
+ENV SKIP_CHOWN=
 VOLUME /data
 EXPOSE 1666
 COPY entrypoint.sh /

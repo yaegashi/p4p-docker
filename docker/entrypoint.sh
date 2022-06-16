@@ -17,7 +17,10 @@ fi
 set -x
 
 mkdir -p $P4SSLDIR $P4PCACHE
-chown -R p4.p4 $P4DIR
+
+if test -z "$SKIP_CHOWN"; then
+        chown -cR p4.p4 $P4DIR
+fi
 
 if ! test -r $P4SSLDIR/privatekey.txt -a -r $P4SSLDIR/certificate.txt; then
         chmod 0700 $P4SSLDIR
