@@ -1,5 +1,3 @@
----
-version: '3'
 services:
   p4p:
     image: ghcr.io/yaegashi/p4p-docker/p4p
