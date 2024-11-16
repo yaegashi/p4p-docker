@@ -12,7 +12,7 @@ fi
 set -x
 
 mkdir -p $P4SSLDIR $P4PCACHE
-chown -c p4.p4 /data $P4SSLDIR $P4PCACHE
+chown -c p4:p4 /data $P4SSLDIR $P4PCACHE
 
 if ! test -r $P4SSLDIR/privatekey.txt -a -r $P4SSLDIR/certificate.txt; then
         chmod 0700 $P4SSLDIR
