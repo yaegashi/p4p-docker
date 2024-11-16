@@ -57,3 +57,5 @@ jobs:
             ${{ startsWith(github.ref, 'refs/tags/') && format('{0}/{1}:{2}', env.REGISTRY, env.IMAGE, env.P4REL) || '' }}
           labels: |
             ${{ steps.meta.outputs.labels }}
+          outputs: |
+            type=image,name=target,annotation-index.org.opencontainers.image.description=Helix Core Proxy Server (P4P)
